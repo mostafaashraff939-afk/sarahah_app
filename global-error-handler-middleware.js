@@ -1,0 +1,20 @@
+   
+
+
+
+
+
+
+   const globalErrorHandler = (err,req,res,next)=>{
+
+
+    console.error(Object.keys(err),err);
+
+     res.status(err.statusCode|| 500)
+     .json({ message :err.message|| 'internal server error'
+        ,errorbody:  err.data,
+        code:err.code,})
+   }
+export default globalErrorHandler
+
+   
